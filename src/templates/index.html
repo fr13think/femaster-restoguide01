@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover and explore great restaurants">
+    <meta name="theme-color" content="#007AFF">
+    
+    <!-- iOS specific meta tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="RestoCat">
+    
+    <link rel="icon" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    <link rel="manifest" href="/manifest.json">
+    
+    <title>Restaurant Catalogue</title>
+</head>
+<body>
+    <a href="#mainContent" class="skip-link">Skip to Content</a>
+    
+    <header class="app-bar">
+        <div class="app-bar__menu">
+            <button id="hamburgerButton" aria-label="navigation menu">☰</button>
+        </div>
+        <div class="app-bar__brand">
+            <h1>Restaurant Catalogue</h1>
+        </div>
+        <nav id="navigationDrawer" class="app-bar__navigation">
+            <ul>
+                <li><a href="#/home">Home</a></li>
+                <li><a href="#/favorite">Favorite</a></li>
+                <li><a href="https://github.com/yourusername" target="_blank" rel="noopener">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="mainContent" tabindex="-1">
+        <div id="content"></div>
+    </main>
+
+    <footer>
+        <p>Copyright © 2024 - Restaurant Catalogue</p>
+    </footer>
+
+    <!-- Notification for iOS installation -->
+    <div id="ios-install-prompt" class="ios-prompt" hidden>
+        <p>Install this application on your iPhone: tap <span class="ios-share-icon"></span> and then "Add to Home Screen"</p>
+        <button class="close-prompt" aria-label="Close installation prompt">×</button>
+    </div>
+</body>
+</html>

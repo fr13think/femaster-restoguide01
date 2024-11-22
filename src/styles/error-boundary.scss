@@ -1,0 +1,68 @@
+/* Error Boundary Styles */
+.error-boundary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    padding: 24px;
+    background-color: var(--ios-background);
+    border-radius: var(--ios-radius);
+    margin: 24px 0;
+}
+
+.error-boundary__content {
+    text-align: center;
+    max-width: 400px;
+}
+
+.error-boundary__icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    animation: shake 0.5s ease-in-out;
+}
+
+.error-boundary__title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--ios-text);
+    margin-bottom: 8px;
+}
+
+.error-boundary__message {
+    color: var(--ios-secondary-text);
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.error-boundary .retry-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.error-boundary .retry-button::before {
+    content: "↺";
+    font-size: 20px;
+}
+
+/* Error Animation */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Responsive styles */
+@media screen and (max-width: 640px) {
+    .error-boundary {
+        min-height: 300px;
+    }
+
+    .error-boundary__icon {
+        font-size: 36px;
+    }
+
+    .error-boundary__title {
+        font-size: 20px;
+    }
+}

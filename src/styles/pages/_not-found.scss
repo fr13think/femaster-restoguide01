@@ -1,0 +1,44 @@
+@use '../variables' as v;
+@use '../mixins' as m;
+
+.not-found {
+    @include m.flex(column, center, center);
+    min-height: 60vh;
+    padding: v.$spacing-xl;
+    text-align: center;
+
+    &__content {
+        max-width: 400px;
+    }
+
+    &__icon {
+        font-size: v.$font-size-4xl;
+        color: v.$ios-blue;
+        margin-bottom: v.$spacing-base;
+    }
+
+    &__title {
+        font-size: v.$font-size-2xl;
+        color: v.$ios-text;
+        margin-bottom: v.$spacing-xs;
+    }
+
+    &__message {
+        color: v.$ios-secondary-text;
+        margin-bottom: v.$spacing-xl;
+    }
+
+    &__actions {
+        @include m.flex(row, center, center);
+        gap: v.$spacing-base;
+        flex-wrap: wrap;
+    }
+
+    &__button {
+        @include m.ios-button;
+
+        &--secondary {
+            @include m.ios-button(v.$ios-light-gray, v.$ios-blue);
+        }
+    }
+}

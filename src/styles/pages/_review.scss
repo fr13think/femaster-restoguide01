@@ -1,0 +1,54 @@
+@use '../variables' as v;
+@use '../mixins' as m;
+
+.review {
+    &-form {
+        background-color: v.$ios-background;
+        padding: v.$spacing-xl;
+        border-radius: v.$border-radius-base;
+        box-shadow: v.$shadow-base;
+        margin: v.$spacing-xl 0;
+    }
+
+    &-list {
+        margin-top: v.$spacing-xl;
+    }
+
+    &-item {
+        background-color: v.$ios-background;
+        padding: v.$spacing-lg;
+        border-radius: v.$border-radius-base;
+        margin-bottom: v.$spacing-base;
+        @include m.transition;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: v.$shadow-base;
+        }
+
+        &__header {
+            @include m.flex(row, space-between, center);
+            margin-bottom: v.$spacing-sm;
+        }
+
+        &__user {
+            font-weight: v.$font-weight-semibold;
+            color: v.$ios-text;
+        }
+
+        &__date {
+            font-size: v.$font-size-sm;
+            color: v.$ios-secondary-text;
+        }
+
+        &__rating {
+            color: v.$ios-warning;
+            margin-bottom: v.$spacing-xs;
+        }
+
+        &__content {
+            color: v.$ios-secondary-text;
+            line-height: v.$line-height-relaxed;
+        }
+    }
+}

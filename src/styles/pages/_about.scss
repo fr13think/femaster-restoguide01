@@ -1,0 +1,28 @@
+@use '../variables' as v;
+@use '../mixins' as m;
+
+.about {
+    @include m.container;
+    padding: v.$spacing-2xl v.$spacing-base;
+
+    &__header {
+        text-align: center;
+        margin-bottom: v.$spacing-2xl;
+    }
+
+    &__title {
+        font-size: v.$font-size-3xl;
+        color: v.$ios-text;
+        margin-bottom: v.$spacing-base;
+    }
+
+    &__tagline {
+        color: v.$ios-secondary-text;
+        font-size: v.$font-size-lg;
+    }
+
+    &__content {
+        display: grid;
+        gap: v.$spacing-2xl;
+    }
+}

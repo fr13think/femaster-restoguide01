@@ -1,0 +1,42 @@
+@use '../variables' as v;
+@use '../mixins' as m;
+
+.error-boundary {
+    @include m.flex(column, center, center);
+    min-height: 400px;
+    padding: v.$spacing-xl;
+    text-align: center;
+    background-color: v.$ios-background;
+    border-radius: v.$border-radius-base;
+    margin: v.$spacing-xl 0;
+
+    &__icon {
+        font-size: v.$font-size-4xl;
+        margin-bottom: v.$spacing-base;
+        animation: shake 0.5s ease-in-out;
+        color: v.$ios-red;
+    }
+
+    &__title {
+        font-size: v.$font-size-2xl;
+        color: v.$ios-text;
+        margin-bottom: v.$spacing-xs;
+    }
+
+    &__message {
+        color: v.$ios-secondary-text;
+        margin-bottom: v.$spacing-xl;
+        max-width: 400px;
+        line-height: v.$line-height-relaxed;
+    }
+
+    .retry-button {
+        @include m.ios-button;
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}

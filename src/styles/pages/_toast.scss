@@ -1,0 +1,132 @@
+@use '../variables' as v;
+@use '../mixins' as m;
+
+#toast-container {
+    position: fixed;
+    bottom: v.$spacing-lg;
+    right: v.$spacing-lg;
+    z-index: v.$z-index-toast;
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-sm;
+    pointer-events: none;
+
+    @include m.mobile {
+        left: v.$spacing-base;
+        right: v.$spacing-base;
+        bottom: v.$spacing-base;
+    }
+}
+
+.toast {
+    min-width: 300px;
+    max-width: 400px;
+    background-color: v.$ios-background;
+    border-radius: v.$border-radius-base;
+    box-shadow: v.$shadow-lg;
+    padding: v.$spacing-sm v.$spacing-base;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transform: translateX(120%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: auto;
+
+    @include m.mobile {
+        min-width: 0;
+        width: 100%;
+    }
+
+    &--visible {
+        transform: translateX(0);
+    }
+
+    &__content {
+        display: flex;
+        align-items: center;
+        gap: v.$spacing-sm;
+        flex: 1;
+    }
+
+    &__icon {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: v.$font-size-sm;
+        flex-shrink: 0;
+    }
+
+    &__message {
+        color: v.$ios-text;
+        font-size: v.$font-size-base;
+        line-height: v.$line-height-base;
+        margin: 0;
+    }
+
+    &__close {
+        background: none;
+        border: none;
+        color: v.$ios-gray;
+        font-size: v.$font-size-xl;
+        cursor: pointer;
+        padding: v.$spacing-xs;
+        margin: -(v.$spacing-xs);
+        opacity: 0.7;
+        transition: opacity 0.2s;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    // Toast Types
+    &--success {
+        .toast__icon {
+            background-color: v.$ios-success;
+            color: white;
+        }
+    }
+
+    &--error {
+        .toast__icon {
+            background-color: v.$ios-red;
+            color: white;
+        }
+    }
+
+    &--warning {
+        .toast__icon {
+            background-color: v.$ios-warning;
+            color: white;
+        }
+    }
+
+    &--info {
+        .toast__icon {
+            background-color: v.$ios-blue;
+            color: white;
+        }
+    }
+}
+
+// Animation
+@keyframes slideIn {
+    from {
+        transform: translateX(120%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

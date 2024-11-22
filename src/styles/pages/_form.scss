@@ -1,0 +1,68 @@
+@use '../variables' as v;
+@use '../mixins' as m;
+
+.form {
+    &-group {
+        margin-bottom: v.$spacing-base;
+    }
+
+    &-label {
+        display: block;
+        font-size: v.$font-size-base;
+        font-weight: v.$font-weight-medium;
+        margin-bottom: v.$spacing-xs;
+        color: v.$ios-text;
+    }
+
+    &-input {
+        width: 100%;
+        padding: v.$spacing-sm v.$spacing-base;
+        font-size: v.$font-size-base;
+        border: 1px solid v.$ios-border;
+        border-radius: v.$border-radius-base;
+        background-color: v.$ios-background;
+        color: v.$ios-text;
+        @include m.transition;
+
+        &:focus {
+            outline: none;
+            border-color: v.$ios-blue;
+            box-shadow: 0 0 0 3px rgba(v.$ios-blue, 0.1);
+        }
+
+        &::placeholder {
+            color: v.$ios-gray;
+        }
+
+        &.error {
+            border-color: v.$ios-red;
+        }
+    }
+
+    &-error-message {
+        color: v.$ios-red;
+        font-size: v.$font-size-sm;
+        margin-top: v.$spacing-xs;
+    }
+
+    &-button {
+        @include m.ios-button;
+    }
+
+    &-message {
+        padding: v.$spacing-base;
+        border-radius: v.$border-radius-base;
+        margin-bottom: v.$spacing-base;
+        font-size: v.$font-size-base;
+
+        &.success {
+            background-color: v.$ios-success;
+            color: white;
+        }
+
+        &.error {
+            background-color: v.$ios-red;
+            color: white;
+        }
+    }
+}

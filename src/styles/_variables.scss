@@ -1,0 +1,81 @@
+// Colors
+$ios-blue: #007AFF;
+$ios-gray: #8E8E93;
+$ios-light-gray: #F2F2F7;
+$ios-border: #C6C6C8;
+$ios-background: #FFFFFF;
+$ios-text: #000000;
+$ios-secondary-text: #6C6C6C;
+$ios-red: #FF3B30;
+$ios-success: #34C759;
+$ios-warning: #FF9500;
+
+// Typography
+$font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-base: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.25rem;
+$font-size-2xl: 1.5rem;
+$font-size-3xl: 1.875rem;
+$font-size-4xl: 2.25rem;
+
+$line-height-none: 1;
+$line-height-tight: 1.25;
+$line-height-snug: 1.375;
+$line-height-base: 1.5;
+$line-height-relaxed: 1.625;
+$line-height-loose: 2;
+
+// Font Weights
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Spacing
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-base: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-2xl: 3rem;
+$spacing-3xl: 4rem;
+
+// Breakpoints
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+$large-desktop: 1200px;
+
+// Container
+$container-max-width: 1200px;
+$container-padding: $spacing-base;
+
+// Border Radius
+$border-radius-sm: 0.25rem;
+$border-radius-base: 0.5rem;
+$border-radius-lg: 1rem;
+$border-radius-full: 9999px;
+
+// Shadows
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-base: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-xl: 0 8px 8px rgba(0, 0, 0, 0.1);
+
+// Transitions
+$transition-base: all 0.3s ease;
+$transition-fast: all 0.15s ease;
+$transition-slow: all 0.5s ease;
+
+// Z-index
+$z-index-drawer: 1000;
+$z-index-modal: 1100;
+$z-index-toast: 1200;
+$z-index-tooltip: 1300;
+
+// Grid
+$grid-columns: 12;
+$grid-gap: $spacing-base;
