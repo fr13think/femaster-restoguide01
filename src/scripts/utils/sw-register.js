@@ -1,12 +1,13 @@
 const swRegister = async () => {
-    if ('serviceWorker' in navigator) {
-        try {
-            await navigator.serviceWorker.register('/service-worker.js');
-            console.log('Service worker registered');
-        } catch (error) {
-            console.log('Failed to register service worker', error);
-        }
-    }
+  if ('serviceWorker' in navigator) {
+      try {
+          const registration = await navigator.serviceWorker.register('/sw.js');
+          console.log('Service worker registration successful');
+          return registration;
+      } catch (error) {
+          console.error('Service worker registration failed:', error);
+      }
+  }
 };
 
 export default swRegister;

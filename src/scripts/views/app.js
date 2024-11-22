@@ -23,25 +23,18 @@ class App {
         const url = UrlParser.parseActiveUrlWithCombiner();
         const page = routes[url];
         
-        if (!page) {
-            this._content.innerHTML = `
-                <div class="error-state">
-                    <h2>404</h2>
-                    <p>Page not found</p>
-                    <a href="#/" class="back-button">Back to Home</a>
-                </div>
-            `;
-            return;
+        // Clear existing hero if it exists
+        const existingHero = document.querySelector('.hero');
+        if (existingHero) {
+            existingHero.remove();
         }
 
         this._content.innerHTML = await page.render();
+        
         await page.afterRender();
 
-        const skipLinkElement = document.querySelector('.skip-link');
-        skipLinkElement.addEventListener('click', (event) => {
-            event.preventDefault();
-            document.querySelector('#mainContent').focus();
-        });
+        // Scroll to top on page change
+        window.scrollTo(0, 0);
     }
 }
 

@@ -4,15 +4,18 @@
 /* Skip Link */
 .skip-link {
     position: absolute;
-    top: -40px;
+    top: -50px;
     left: 0;
-    padding: v.$spacing-sm v.$spacing-base;
     background-color: v.$ios-blue;
     color: white;
+    padding: v.$spacing-sm v.$spacing-base;
     z-index: 100;
-    
+    text-decoration: none;
+    transition: v.$transition-base;
+
     &:focus {
-        top: 0;
+        top: v.$spacing-base;
+        left: v.$spacing-base;
     }
 }
 
@@ -20,68 +23,104 @@
 .app-bar {
     padding: v.$spacing-sm v.$spacing-base;
     background-color: white;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: sticky;
     top: 0;
     z-index: 99;
     box-shadow: v.$shadow-base;
 
     &__menu {
-        display: flex;
-        align-items: center;
+        @media screen and (min-width: 768px) {
+            display: none;
+        }
 
         button {
-            background-color: transparent;
-            border: none;
-            font-size: 28px;
-            padding: v.$spacing-sm;
-            cursor: pointer;
             min-width: 44px;
             min-height: 44px;
+            font-size: 28px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            padding: v.$spacing-sm;
+            color: v.$ios-blue;
+            
+            &:focus {
+                outline: 3px solid v.$ios-blue;
+                border-radius: v.$border-radius-sm;
+            }
         }
     }
 
     &__brand {
-        display: flex;
-        align-items: center;
-
         h1 {
             color: v.$ios-blue;
-            text-transform: uppercase;
             font-size: 22px;
-            user-select: none;
+            margin: 0;
+            padding: v.$spacing-sm 0;
         }
     }
 
     &__navigation {
-        position: fixed;
-        top: 50px;
-        left: -180px;
-        width: 150px;
-        height: 100vh;
-        background-color: white;
-        transition: all 0.3s;
-        padding: v.$spacing-sm;
+        @media screen and (max-width: 767px) {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100vh;
+            background-color: white;
+            transition: v.$transition-base;
+            padding-top: 80px;
+            overflow-y: auto;
+            box-shadow: v.$shadow-lg;
 
-        &.open {
-            left: 0;
+            &.open {
+                left: 0;
+            }
+
+            ul {
+                padding: 0 v.$spacing-base;
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+            position: static;
+            width: auto;
+            height: auto;
+            padding: 0;
+            background: none;
+            box-shadow: none;
+
+            ul {
+                display: flex;
+                gap: v.$spacing-lg;
+                margin: 0;
+                padding: 0;
+            }
         }
 
         ul {
-            display: grid;
-            grid-row-gap: 10px;
             list-style: none;
+        }
 
-            li a {
-                display: inline-block;
-                text-decoration: none;
-                color: black;
-                padding: v.$spacing-sm;
-                margin-bottom: 5px;
-                width: 100%;
-                min-height: 44px;
+        li a {
+            display: inline-block;
+            min-height: 44px;
+            min-width: 44px;
+            padding: v.$spacing-sm v.$spacing-base;
+            color: v.$ios-text;
+            text-decoration: none;
+            font-size: 16px;
+            line-height: 24px;
+
+            &:focus {
+                outline: 3px solid v.$ios-blue;
+                border-radius: v.$border-radius-sm;
+            }
+
+            &:hover {
+                color: v.$ios-blue;
             }
         }
     }
@@ -89,33 +128,52 @@
 
 /* Hero */
 .hero {
-    display: flex;
-    align-items: center;
-    min-height: 380px;
     width: 100%;
+    min-height: 380px;
     text-align: center;
-    background-image: url("../public/images/heros/hero-image_3.jpg");
-    background-position: center;
-    background-color: green;
+    background-image: url('../public/images/heros/hero-image_2.jpg');
     background-size: cover;
+    background-position: center;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+    }
 
     &__inner {
+        position: relative;
+        padding: v.$spacing-2xl v.$spacing-base;
+        z-index: 1;
+        max-width: 1200px;
         margin: 0 auto;
-        max-width: 800px;
-        padding: v.$spacing-xl;
     }
 
     &__title {
-        color: #fff;
+        color: white;
         font-weight: 500;
         font-size: 36px;
+        margin-bottom: v.$spacing-base;
     }
 
     &__tagline {
-        color: #fff;
-        margin-top: v.$spacing-base;
+        color: white;
         font-size: 18px;
         font-weight: 300;
+    }
+
+    @media screen and (min-width: 1200px) {
+        width: 100%;
+        min-width: 1000px;
+
+        &__inner {
+            padding: v.$spacing-8xl v.$spacing-2xl;
+        }
     }
 }
 
@@ -132,6 +190,7 @@ main {
     &__heading {
         font-weight: normal;
         text-align: center;
+        margin-top: v.$spacing-base;
         margin-bottom: v.$spacing-2xl;
     }
 }
@@ -197,9 +256,6 @@ main {
                 font-size: 18px;
                 transition: color 0.3s ease;
 
-                &:hover {
-                    color: darken(v.$ios-blue, 10%);
-                }
             }
         }
 

@@ -46,9 +46,6 @@ a {
     text-decoration: none;
     @include m.transition;
     
-    &:hover {
-        color: darken(v.$ios-blue, 10%);
-    }
 }
 
 ul, ol {
